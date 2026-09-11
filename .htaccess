@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /uatmioot/uidesign/React/CVUAE_Form/form1/
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /uatmioot/uidesign/React/CVUAE_Form/form1/index.html [L]
