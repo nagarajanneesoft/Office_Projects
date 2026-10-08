@@ -59,6 +59,38 @@ function AppRoutes() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const loader = document.getElementById("app-loader");
+    if (!loader) return undefined;
+
+    let loadTimeout;
+    let removeTimeout;
+    let resolvePageLoad;
+    const pageLoaded =
+      document.readyState === "complete"
+        ? Promise.resolve()
+        : new Promise((resolve) => {
+            resolvePageLoad = resolve;
+            window.addEventListener("load", resolve, { once: true });
+          });
+    const minimumDisplayTime = new Promise((resolve) => {
+      loadTimeout = window.setTimeout(resolve, 500);
+    });
+
+    Promise.all([pageLoaded, minimumDisplayTime]).then(() => {
+      loader.classList.add("app-loader-hidden");
+      removeTimeout = window.setTimeout(() => loader.remove(), 300);
+    });
+
+    return () => {
+      if (resolvePageLoad) {
+        window.removeEventListener("load", resolvePageLoad);
+      }
+      window.clearTimeout(loadTimeout);
+      window.clearTimeout(removeTimeout);
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="site-shell">
