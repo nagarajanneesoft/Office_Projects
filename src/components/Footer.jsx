@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUp, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import Newsletter from "./Newsletter.jsx";
-
+// import Logo from "../assets/Logo.png";
 export default function Footer() {
   return (
     <>
@@ -9,6 +9,7 @@ export default function Footer() {
       <footer className="site-footer">
         <div className="container-xl footer-grid">
           <div className="footer-intro">
+            {/* <img className="brand-logo" src={Logo} alt="NeeSoft" /> */}
             <p className="footer-overline">Ready to</p>
             <h2>Work with us?</h2>
             <p>
@@ -42,12 +43,16 @@ export default function Footer() {
                 <small>Email us</small>info@neesoft.com
               </span>
             </a>
-            <div>
+            <div className="footer-location">
               <span className="footer-contact-icon">
                 <MapPin size={16} />
               </span>
               <span>
-                <small>Our location</small>Chennai, Tamil Nadu
+                <small>Our location</small>
+                Neesoft Solution Pvt Ltd, <br />
+                Office-A, I Floor, Kaashyap Enclave, <br />
+                13-A/209, Velachery Main Rd, Dhadeswaram Nagar, <br />
+                Velachery, Chennai, Tamil Nadu 600042.
               </span>
             </div>
           </div>

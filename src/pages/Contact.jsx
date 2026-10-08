@@ -178,13 +178,35 @@ export default function Contact() {
               <div>
                 <span>Our office</span>
                 <strong>
-                  Third Floor, No. 207, Velachery Main Road,
-                  <br />
-                  Dhadeswaram Nagar, Velachery,
-                  <br />
-                  Chennai, Tamil Nadu - 600042
+                  Neesoft Solution Pvt Ltd, <br />
+                  Office-A, I Floor, Kaashyap Enclave, <br />
+                  13-A/209, Velachery Main Rd, Dhadeswaram Nagar, <br />
+                  Velachery, Chennai, Tamil Nadu 600042.
                 </strong>
               </div>
+            </div>
+            <div className="contact-map-card">
+              <div className="contact-map-heading">
+                <div>
+                  <span>Find us</span>
+                  <strong>NeeSoft Chennai office</strong>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Neesoft+Solution+Pvt+Ltd%2C+Office-A%2C+I+Floor%2C+Kaashyap+Enclave%2C+13-A%2F209%2C+Velachery+Main+Rd%2C+Dhadeswaram+Nagar%2C+Velachery%2C+Chennai%2C+Tamil+Nadu+600042"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Get directions to NeeSoft Chennai office"
+                >
+                  Directions <ArrowUpRight size={16} />
+                </a>
+              </div>
+              <iframe
+                title="Map showing the NeeSoft Chennai office"
+                src="https://www.google.com/maps?q=Neesoft%20Solution%20Pvt%20Ltd%2C%20Office-A%2C%20I%20Floor%2C%20Kaashyap%20Enclave%2C%2013-A%2F209%2C%20Velachery%20Main%20Rd%2C%20Dhadeswaram%20Nagar%2C%20Velachery%2C%20Chennai%2C%20Tamil%20Nadu%20600042&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check, Phone } from "lucide-react";
+import { ArrowUpRight, Check, Eye, Phone, Target } from "lucide-react";
 import aboutImage from "../assets/about-main.webp";
 import aboutInsetImage from "../assets/about-inset.webp";
 import PageHero from "../components/PageHero.jsx";
@@ -63,31 +63,63 @@ export default function About() {
       </section>
       <section className="direction-section section-pad">
         <div className="container-xl">
-          <p className="section-kicker">Our direction</p>
-          <h2>
-            Technology with purpose.
-            <br />
-            Built for lasting business value.
-          </h2>
+          <div className="direction-heading">
+            <div>
+              <p className="section-kicker">Our direction</p>
+              <h2>
+                Purposeful technology.
+                <br />A future built together.
+              </h2>
+            </div>
+            <p className="direction-summary">
+              The principles behind how we solve today&apos;s challenges and
+              build for what comes next.
+            </p>
+          </div>
           <div className="purpose-grid">
-            <article>
-              <p className="section-kicker">Mission</p>
-              <h3>Our purpose</h3>
-              <p>
-                To deliver dependable technology solutions that address complex
-                business requirements, improve operational efficiency, and
-                enable organizations to achieve their strategic objectives with
-                confidence.
-              </p>
+            <article className="purpose-card purpose-card-mission">
+              <div className="purpose-card-topline">
+                <span className="purpose-card-number">01</span>
+                <span className="purpose-card-icon">
+                  <Target size={23} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+              </div>
+              <div className="purpose-card-content">
+                <p className="section-kicker">Our mission</p>
+                <h3>Make technology work better for business.</h3>
+                <p>
+                  We deliver dependable technology that solves complex
+                  challenges, improves day-to-day operations, and helps
+                  organizations reach their goals with confidence.
+                </p>
+              </div>
+              <div className="purpose-card-values" aria-label="Mission focus">
+                <span>Dependability</span>
+                <span>Efficiency</span>
+                <span>Meaningful impact</span>
+              </div>
             </article>
-            <article>
-              <p className="section-kicker">Vision</p>
-              <h3>Our aspiration</h3>
-              <p>
-                To be a trusted technology partner for organizations seeking
-                scalable, innovative, and sustainable digital solutions that
-                strengthen their operations and support long-term growth.
-              </p>
+            <article className="purpose-card purpose-card-vision">
+              <div className="purpose-card-topline">
+                <span className="purpose-card-number">02</span>
+                <span className="purpose-card-icon">
+                  <Eye size={23} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+              </div>
+              <div className="purpose-card-content">
+                <p className="section-kicker">Our vision</p>
+                <h3>Be the partner behind lasting progress.</h3>
+                <p>
+                  We aspire to be a trusted technology partner, creating
+                  scalable and sustainable digital solutions that strengthen
+                  organizations and support long-term growth.
+                </p>
+              </div>
+              <div className="purpose-card-values" aria-label="Vision focus">
+                <span>Trust</span>
+                <span>Innovation</span>
+                <span>Sustainable growth</span>
+              </div>
             </article>
           </div>
         </div>
