@@ -5116,10 +5116,26 @@ body {
   text-align: left;
 }
 .clients-page .clients-intro > div {
-  max-width: 610px;
+  flex: 1 1 55%;
+  max-width: 650px;
+  min-width: 0;
 }
 .clients-page .clients-intro .section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
   color: #e86020;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+.clients-page .clients-intro .section-kicker::before {
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  content: "";
 }
 .clients-page .clients-intro h2,
 .contact-intro h2 {
@@ -5130,9 +5146,23 @@ body {
   letter-spacing: -1.5px;
   line-height: 1.12;
 }
+.clients-page .clients-intro h2 {
+  width: 100%;
+  max-width: 620px;
+  font-size: clamp(40px, 5vw, 58px);
+  letter-spacing: -2.3px;
+  line-height: 1.03;
+}
+.clients-page .clients-intro h2 span {
+  display: block;
+  color: #e86020;
+}
 .clients-page .clients-intro > p {
+  flex: 0 1 40%;
   max-width: 480px;
   margin: 0;
+  padding-left: 24px;
+  border-left: 2px solid #f0c4ae;
   color: #687b86;
   font-size: 16px;
   line-height: 1.8;
@@ -5303,6 +5333,13 @@ body {
     align-items: start;
     flex-direction: column;
     gap: 18px;
+  }
+  .clients-page .clients-intro h2 {
+    font-size: clamp(38px, 9vw, 48px);
+    letter-spacing: -1.8px;
+  }
+  .clients-page .clients-intro > p {
+    padding-left: 16px;
   }
   .clients-page .client-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5479,36 +5516,40 @@ body {
 .scroll-reveal[data-reveal] {
   transition:
     opacity 0.72s ease,
+    filter 0.72s ease,
     transform 0.84s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: blur(5px);
   will-change: opacity, transform;
 }
 .scroll-reveal[data-reveal="left"] {
-  transform: translateX(-42px);
+  transform: translateX(-28px);
 }
 .scroll-reveal[data-reveal="right"] {
-  transform: translateX(42px);
+  transform: translateX(28px);
 }
 .scroll-reveal[data-reveal="top"] {
-  transform: translateY(-36px);
+  transform: translateY(-26px);
 }
 .scroll-reveal[data-reveal="bottom"] {
-  transform: translateY(36px);
+  transform: translateY(26px);
 }
 .scroll-reveal[data-reveal="zoom"] {
-  transform: scale(0.96);
+  transform: translateY(18px) scale(0.97);
 }
 .scroll-reveal[data-reveal="bounce"] {
-  transform: translateY(30px);
+  transform: translateY(24px);
   transition-timing-function: ease, cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .scroll-reveal.is-visible[data-reveal] {
   opacity: 1;
+  filter: blur(0);
   transform: translate(0, 0) scale(1);
 }
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal[data-reveal],
   .scroll-reveal.is-visible[data-reveal] {
     opacity: 1;
+    filter: none;
     transform: none;
     transition: none;
     will-change: auto;
@@ -5541,11 +5582,13 @@ body {
 @keyframes banner-title-rise {
   from {
     opacity: 0;
-    transform: translateY(42px);
+    filter: blur(8px);
+    transform: translateY(42px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    filter: blur(0);
+    transform: translateY(0) scale(1);
   }
 }
 @keyframes banner-copy-rise {
@@ -5588,7 +5631,7 @@ body {
   max-width: 620px;
   color: #202b31;
   font-family: "Red Hat Display", "DM Sans", serif;
-  font-size: clamp(40px, 4.8vw, 60px);
+  font-size: clamp(40px, 4.8vw, 46px);
   line-height: 1.08;
 }
 .home-page .home-services-aside {
@@ -5909,7 +5952,7 @@ body {
   max-width: 650px;
   color: #202b31;
   font-family: "Red Hat Display", "DM Sans", serif;
-  font-size: clamp(40px, 4.6vw, 56px);
+  font-size: clamp(40px, 4.6vw, 46px);
   letter-spacing: -1.8px;
   line-height: 1.1;
 }
@@ -6544,6 +6587,142 @@ body {
     transition: none;
   }
   .about-page .purpose-grid .purpose-card:hover {
+    transform: none;
+  }
+}
+
+/* A clear, card-based technology showcase on the Services page. */
+.services-tech-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 8% 4%, rgba(232, 96, 32, 0.07), transparent 27%),
+    linear-gradient(180deg, #fafbfa 0%, #f3f6f5 100%);
+}
+.services-tech-section .container-xl {
+  position: relative;
+  z-index: 1;
+}
+.services-tech-heading {
+  max-width: 660px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.services-tech-heading .section-kicker {
+  margin-bottom: 12px;
+  color: #e86020;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+.services-tech-heading h2 {
+  margin: 0;
+  color: #202f38;
+  font-family: "Red Hat Display", "DM Sans", sans-serif;
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -1.8px;
+  line-height: 1.12;
+}
+.services-tech-heading > p:last-child {
+  max-width: 510px;
+  margin: 14px auto 0;
+  color: #6b7b82;
+  font-size: 15px;
+  line-height: 1.75;
+}
+.services-tech-section .tech-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.services-tech-section .tech-card {
+  min-width: 0;
+  min-height: 94px;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1px solid #e6ebea;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 22px rgba(28, 48, 57, 0.035);
+  text-align: left;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+.services-tech-section .tech-card:hover {
+  transform: translateY(-4px);
+  border-color: #f0c2aa;
+  box-shadow: 0 16px 30px rgba(28, 48, 57, 0.08);
+}
+.services-tech-section .tech-icon {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  border: 1px solid #f0f1ef;
+  border-radius: 14px;
+  background: #f8f9f8;
+}
+.services-tech-section .tech-icon img {
+  width: 32px;
+  height: 32px;
+}
+.services-tech-section .tech-card strong {
+  margin: 0;
+  color: #30434d;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .services-tech-section .tech-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .services-tech-section .tech-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .services-tech-heading {
+    margin-bottom: 32px;
+  }
+  .services-tech-heading > p:last-child {
+    font-size: 14px;
+  }
+  .services-tech-section .tech-card {
+    min-height: 82px;
+    gap: 11px;
+    padding: 12px;
+    border-radius: 13px;
+  }
+  .services-tech-section .tech-icon {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+  .services-tech-section .tech-icon img {
+    width: 27px;
+    height: 27px;
+  }
+  .services-tech-section .tech-card strong {
+    font-size: 12px;
+  }
+}
+@media (max-width: 360px) {
+  .services-tech-section .tech-list {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .services-tech-section .tech-card {
+    transition: none;
+  }
+  .services-tech-section .tech-card:hover {
     transform: none;
   }
 }

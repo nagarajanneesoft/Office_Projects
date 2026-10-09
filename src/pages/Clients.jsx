@@ -13,7 +13,10 @@ export default function Clients() {
         <div className="container-xl clients-intro">
           <div>
             <p className="section-kicker">Our partnerships</p>
-            <h2>Trusted relationships. Meaningful progress.</h2>
+            <h2>
+              Built on trust.
+              <span>Focused on your progress.</span>
+            </h2>
           </div>
           <p>
             We work alongside teams across industries to solve real challenges,

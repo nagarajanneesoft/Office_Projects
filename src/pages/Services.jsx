@@ -25,10 +25,16 @@ export default function Services() {
           <ServiceCards />
         </div>
       </section>
-      <section className="technology-band section-pad">
+      <section className="technology-band services-tech-section section-pad">
         <div className="container-xl">
-          <p className="section-kicker">Our toolkit</p>
-          <h2>Technologies we work with</h2>
+          <div className="services-tech-heading">
+            <p className="section-kicker">Our technology stack</p>
+            <h2>Technologies we work with</h2>
+            <p>
+              The trusted tools and platforms we use to build reliable,
+              scalable digital solutions.
+            </p>
+          </div>
           <div className="tech-list">
             {technologies.map(({ name, logo }) => (
               <div className="tech-card" key={name}>
