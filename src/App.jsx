@@ -7,6 +7,7 @@ import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Clients from "./pages/Clients.jsx";
 import Contact from "./pages/Contact.jsx";
+import Careers from "./pages/Careers.jsx";
 import "./App.css";
 
 function AppRoutes() {
@@ -52,6 +53,7 @@ function AppRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/clients" element={<Clients />} />
+        <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>

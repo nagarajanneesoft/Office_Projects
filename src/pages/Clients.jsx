@@ -1,5 +1,5 @@
-import PageHero from '../components/PageHero.jsx';
-import { clients } from '../data/siteData.js';
+import PageHero from "../components/PageHero.jsx";
+import { clients } from "../data/siteData.js";
 
 export default function Clients() {
   return (
@@ -19,9 +19,10 @@ export default function Clients() {
             </h2>
           </div>
           <p>
-            We work alongside teams across industries to solve real challenges,
-            improve operations, and build technology that supports lasting
-            growth.
+            We are proud to partner with organizations across diverse
+            industries. Our technology solutions and industry expertise help our
+            clients improve efficiency, scale operations, and achieve their
+            business goals.
           </p>
         </div>
         <div className="container-xl client-grid">
@@ -48,6 +49,12 @@ export default function Clients() {
               </span>
             </article>
           ))}
+        </div>
+        <div className="client_footer_cont">
+          <p>
+            A big Thanks to our clients for their continued trust and
+            partnership.
+          </p>
         </div>
       </section>
     </>

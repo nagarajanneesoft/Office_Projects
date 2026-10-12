@@ -155,6 +155,9 @@ export default function Contact() {
             <button className="nav-cta" type="submit">
               Send inquiry <ArrowUpRight size={18} />
             </button>
+            <div className="client_footer_cont">
+              <p>We use these details only to reply to your inquiry.</p>
+            </div>
           </form>
           <div className="contact-details">
             <div className="contact-detail wide">

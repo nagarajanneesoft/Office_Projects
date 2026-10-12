@@ -1,36 +1,49 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { clients } from '../data/siteData.js';
+
+const visibleClients = clients.slice(0, 6);
+const clientLoop = [...visibleClients, ...visibleClients, ...visibleClients];
 
 export default function ClientCarousel() {
   const trackRef = useRef(null);
   const [paused, setPaused] = useState(false);
 
-  const move = (direction) => {
+  const getMetrics = () => {
     const track = trackRef.current;
-    if (!track) return;
-    const firstCard = track.querySelector('.home-client-wordmark');
+    const firstCard = track?.querySelector('.home-client-wordmark');
+    if (!track || !firstCard) return null;
     const gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 14;
-    const step = firstCard ? (firstCard.getBoundingClientRect().width + gap) * 2 : track.clientWidth * 0.72;
-    track.scrollBy({ left: direction * step, behavior: 'smooth' });
+    const step = firstCard.getBoundingClientRect().width + gap;
+    return { track, step, cycle: step * visibleClients.length };
+  };
+
+  useLayoutEffect(() => {
+    const metrics = getMetrics();
+    if (metrics) metrics.track.scrollLeft = metrics.cycle;
+  }, []);
+
+  const move = (direction) => {
+    const metrics = getMetrics();
+    if (!metrics) return;
+    metrics.track.scrollBy({ left: direction * metrics.step * 2, behavior: 'smooth' });
+  };
+
+  const normalizeLoop = () => {
+    const metrics = getMetrics();
+    if (!metrics) return;
+    const { track, step, cycle } = metrics;
+    if (track.scrollLeft >= cycle * 2 - step / 2) track.scrollLeft -= cycle;
+    else if (track.scrollLeft <= step / 2) track.scrollLeft += cycle;
   };
 
   useEffect(() => {
     if (paused) return undefined;
 
     const timer = window.setInterval(() => {
-      const track = trackRef.current;
-      if (!track || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
-      const firstCard = track.querySelector('.home-client-wordmark');
-      const gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 14;
-      const step = firstCard ? firstCard.getBoundingClientRect().width + gap : track.clientWidth * 0.72;
-      if (atEnd) {
-        track.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        track.scrollBy({ left: step, behavior: 'smooth' });
-      }
+      const metrics = getMetrics();
+      if (!metrics || document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      metrics.track.scrollBy({ left: metrics.step, behavior: 'smooth' });
     }, 3200);
 
     return () => window.clearInterval(timer);
@@ -64,9 +77,10 @@ export default function ClientCarousel() {
           onBlurCapture={(event) => {
             if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
           }}
+          onScroll={normalizeLoop}
         >
-          {clients.slice(0, 6).map((client, index) => (
-            <div className="home-client-wordmark" key={`${client}-${index}`}>
+          {clientLoop.map((client, index) => (
+            <div className="home-client-wordmark" key={`${client}-${index}`} aria-hidden={index < visibleClients.length || index >= visibleClients.length * 2}>
               <strong>{client}</strong>
             </div>
           ))}

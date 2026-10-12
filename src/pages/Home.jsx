@@ -6,20 +6,33 @@ import bannerImage from "../assets/invena-banner.webp";
 import AnimatedCounter from "../components/AnimatedCounter.jsx";
 import aboutImage from "../assets/aboutImage.jpg";
 import workImg from "../assets/workImg.jpg";
+import whyTeamsImage from "../assets/about-main.webp";
 
 export default function Home() {
   const trustSteps = [
     [
-      "Senior thinking",
-      "Experienced people stay hands-on from the first conversation through delivery.",
+      "Experienced Team",
+      "Seasoned professionals with deep domain expertise across various technology stacks.",
     ],
     [
-      "Clear communication",
-      "You know where things stand and what is coming next at every milestone.",
+      "Scalable Solutions",
+      "Architectures designed to grow seamlessly alongside your business operations.",
     ],
     [
-      "Built to scale",
-      "Practical foundations support your product as your business grows.",
+      "Transparent Communication",
+      "Clear, consistent updates and collaborative approaches throughout the project lifecycle.",
+    ],
+    [
+      "On-Time Delivery",
+      "Rigorous project management ensuring milestones and deadlines are consistently met.",
+    ],
+    [
+      "Long-Term Support",
+      "Dedicated maintenance and reliable support post-deployment for continuous optimization.",
+    ],
+    [
+      "Business-Focused Approach",
+      "Aligning every technical decision with your strategic business objectives.",
     ],
   ];
 
@@ -34,20 +47,25 @@ export default function Home() {
         <div className="container-xl hero-banner-content">
           <div className="hero-copy">
             <div className="eyebrow">
-              <strong>WELCOME!</strong> START GROWING YOUR BUSINESS TODAY
+              <strong>EMPOWERING !</strong> BUSINESSES WITH TECHNOLOGY
             </div>
             <h1>
-              <span className="hero-title-line">Innovative Solutions,</span>
-              <span className="hero-title-line">Tailored for Your Success</span>
+              <span className="hero-title-line">
+                Building Digital Solutions
+              </span>
+              <span className="hero-title-line">for a Smarter Tomorrow</span>
             </h1>
             <p className="hero-lead">
-              Porttitor ornare fermentum aliquam pharetra facilisis gravida
-              risus suscipit. Dui feugiat fusce conubia ridiculus tristique
-              parturient.
+              NeeSoft delivers reliable, scalable and innovative technology
+              solutions that help businesses transform, grow and succeed in a
+              digital-first world.
             </p>
-            <div className="hero-actions">
+            <div className="hero-actions gap-3">
               <Link className="button button-primary" to="/contact">
-                Let&apos;s talk about your project <ArrowUpRight size={18} />
+                Explore Our Services <ArrowUpRight size={18} />
+              </Link>
+              <Link className="button button-primary" to="/contact">
+                Contact Us Today <ArrowUpRight size={18} />
               </Link>
             </div>
           </div>
@@ -81,8 +99,12 @@ export default function Home() {
                 with.
               </p>
               <div className="home-approach-signals">
-                <span><Check size={15} strokeWidth={2.5} /> Shaped around your team</span>
-                <span><Check size={15} strokeWidth={2.5} /> Ready to grow with you</span>
+                <span>
+                  <Check size={15} strokeWidth={2.5} /> Shaped around your team
+                </span>
+                <span>
+                  <Check size={15} strokeWidth={2.5} /> Ready to grow with you
+                </span>
               </div>
               <Link className="text-link dark-link" to="/about">
                 Meet the people behind the work <MoveUpRight size={17} />
@@ -98,16 +120,16 @@ export default function Home() {
         <div className="container-xl">
           <div className="section-heading">
             <div>
-              <p className="section-kicker">What we do</p>
+              <p className="section-kicker">OUR SERVICES</p>
               <h2>
-                From first idea to
-                <br className="desktop-only" /> lasting advantage.
+                Comprehensive Technology
+                <br className="desktop-only" /> Solutions
               </h2>
             </div>
             <div className="home-services-aside">
               <p>
-                Focused expertise for the moments that matter most in your
-                digital journey.
+                We provide software, consulting, and long-term support that help
+                businesses operate with more clarity and confidence.
               </p>
               <Link className="text-link dark-link" to="/services">
                 Explore all capabilities <ArrowUpRight size={17} />
@@ -118,29 +140,67 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-section section-pad">
-        <div className="container-xl trust-grid">
-          <div>
+      <section
+        className="home-why-teams section-pad"
+        aria-labelledby="home-why-title"
+      >
+        <div className="container-xl">
+          <div className="home-why-heading">
             <p className="section-kicker">Why teams choose us</p>
-            <h2>Good work is built on good relationships.</h2>
-            <p className="trust-lead">
-              You get a partner who listens closely, thinks commercially, and
-              stays invested long after launch.
+            <h2 id="home-why-title">Built on Trust. Driven by Results.</h2>
+            <p>
+              We combine technical excellence with business acumen to deliver
+              measurable results.
             </p>
-            <Link className="button button-light" to="/contact">
-              Start a conversation <ArrowUpRight size={18} />
-            </Link>
           </div>
-          <div className="value-list">
-            {trustSteps.map(([title, text], index) => (
-              <article className="value-item" key={title}>
-                <span>0{index + 1}</span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              </article>
-            ))}
+          <div className="home-why-layout">
+            <div className="home-why-list">
+              {trustSteps.slice(0, 3).map(([title, text], index) => (
+                <article className="home-why-card" key={title}>
+                  <span className="home-why-number">0{index + 1}</span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                  <ArrowUpRight
+                    className="home-why-arrow"
+                    size={19}
+                    aria-hidden="true"
+                  />
+                </article>
+              ))}
+            </div>
+            <div className="home-why-visual">
+              <img
+                src={whyTeamsImage}
+                alt="NeeSoft team collaborating on a business solution"
+              />
+              <div>
+                <span>People first</span>
+                <strong>Technology that moves business forward.</strong>
+              </div>
+            </div>
+            <div className="home-why-list home-why-list-right">
+              {trustSteps.slice(3).map(([title, text], index) => (
+                <article className="home-why-card" key={title}>
+                  <span className="home-why-number">0{index + 4}</span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                  <ArrowUpRight
+                    className="home-why-arrow"
+                    size={19}
+                    aria-hidden="true"
+                  />
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="home-why-action">
+            <Link className="text-link dark-link" to="/contact">
+              Start a conversation <ArrowUpRight size={17} />
+            </Link>
           </div>
         </div>
       </section>
@@ -198,18 +258,14 @@ export default function Home() {
       <section className="metrics-section section-pad">
         <div className="container-xl metrics-grid">
           <div>
-            <p className="section-kicker">A track record that speaks</p>
-            <h2>Built for the long run.</h2>
+            <p className="section-kicker">OUR TRACK RECORD</p>
+            <h2>Technology Expertise. Business Focus.</h2>
           </div>
           <div className="metric-list">
-            <AnimatedCounter
-              value={100}
-              suffix="+"
-              label="Projects delivered"
-            />
+            <AnimatedCounter value={80} suffix="+" label="Projects delivered" />
             <AnimatedCounter value={50} suffix="+" label="Business clients" />
             <AnimatedCounter
-              value={98}
+              value={100}
               suffix="%"
               label="Client satisfaction"
             />

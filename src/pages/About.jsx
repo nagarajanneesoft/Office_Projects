@@ -1,7 +1,15 @@
-import { ArrowUpRight, Check, Eye, Phone, Target } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, Check, Eye, HeartHandshake, Lightbulb, Phone, ShieldCheck, Target, TrendingUp } from "lucide-react";
 import aboutImage from "../assets/about-main.webp";
 import aboutInsetImage from "../assets/about-inset.webp";
 import PageHero from "../components/PageHero.jsx";
+
+const coreValues = [
+  { title: "Integrity", text: "We operate with honesty, transparency, and accountability in every decision and engagement.", icon: ShieldCheck, tone: "blue" },
+  { title: "Innovation", text: "We continuously explore better approaches to solve complex problems and create meaningful value.", icon: Lightbulb, tone: "amber" },
+  { title: "Customer Commitment", text: "We put our clients' objectives at the center of every solution, decision, and delivery.", icon: HeartHandshake, tone: "mint" },
+  { title: "Quality Delivery", text: "We maintain high standards across engineering, execution, and every solution we deliver.", icon: BadgeCheck, tone: "violet" },
+  { title: "Continuous Improvement", text: "We keep learning, refining our practices, and improving how we deliver technology.", icon: TrendingUp, tone: "coral" },
+];
 
 export default function About() {
   return (
@@ -28,13 +36,24 @@ export default function About() {
             </div>
           </div>
           <div className="about-feature-copy">
-            <p className="section-kicker">More about us</p>
-            <h2>Technology that moves your business forward.</h2>
+            <p className="section-kicker">WHO WE ARE</p>
+            <h2>Technology Built Around Real Business Needs.</h2>
             <p className="about-feature-lead">
-              We turn complex business challenges into dependable digital
-              solutions, shaped around the people and processes that use them.
+              NeeSoft is a technology solutions and IT services company
+              committed to delivering software that solves real business
+              challenges. We work closely with organizations to understand their
+              objectives, transform complex requirements into practical
+              solutions, and build technology that supports long-term growth.
             </p>
-            <ul className="about-feature-list">
+            <p className="about-feature-lead">
+              From custom software and enterprise applications to modern web
+              solutions and technology consulting, our approach combines
+              engineering expertise, business insight, and a commitment to
+              quality. We focus on delivering scalable and dependable solutions
+              that improve efficiency, enable innovation, and create measurable
+              business value.
+            </p>
+            <ul className="about-feature-list d-none">
               <li>
                 <Check size={17} strokeWidth={3} /> Solutions tailored to your
                 needs
@@ -48,7 +67,7 @@ export default function About() {
                 growth
               </li>
             </ul>
-            <a className="about-feature-contact" href="tel:+919840173006">
+            {/* <a className="about-feature-contact" href="tel:+919840173006">
               <span className="about-feature-phone">
                 <Phone size={19} />
               </span>
@@ -57,7 +76,7 @@ export default function About() {
                 <strong>+91 98401 73006</strong>
               </span>
               <ArrowUpRight className="about-feature-arrow" size={20} />
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
@@ -67,8 +86,9 @@ export default function About() {
             <div>
               <p className="section-kicker">Our direction</p>
               <h2>
-                Purposeful technology.
-                <br />A future built together.
+                Technology with purpose.
+                <br />
+                Built for lasting business value.
               </h2>
             </div>
             <p className="direction-summary">
@@ -86,11 +106,12 @@ export default function About() {
               </div>
               <div className="purpose-card-content">
                 <p className="section-kicker">Our mission</p>
-                <h3>Make technology work better for business.</h3>
+                <h3>Our Purpose</h3>
                 <p>
-                  We deliver dependable technology that solves complex
-                  challenges, improves day-to-day operations, and helps
-                  organizations reach their goals with confidence.
+                  To deliver dependable technology solutions that address
+                  complex business requirements, improve operational efficiency,
+                  and enable organizations to achieve their strategic objectives
+                  with confidence.
                 </p>
               </div>
               <div className="purpose-card-values" aria-label="Mission focus">
@@ -108,11 +129,11 @@ export default function About() {
               </div>
               <div className="purpose-card-content">
                 <p className="section-kicker">Our vision</p>
-                <h3>Be the partner behind lasting progress.</h3>
+                <h3>Our Aspiration</h3>
                 <p>
-                  We aspire to be a trusted technology partner, creating
-                  scalable and sustainable digital solutions that strengthen
-                  organizations and support long-term growth.
+                  To be a trusted technology partner for organizations seeking
+                  scalable, innovative, and sustainable digital solutions that
+                  strengthen their operations and support long-term growth.
                 </p>
               </div>
               <div className="purpose-card-values" aria-label="Vision focus">
@@ -121,6 +142,24 @@ export default function About() {
                 <span>Sustainable growth</span>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+      <section className="core-values-section section-pad" aria-labelledby="core-values-title">
+        <div className="container-xl">
+          <div className="core-values-heading">
+            <p className="section-kicker">What we stand for</p>
+            <h2 id="core-values-title">Core Values</h2>
+            <p>The principles that guide how we work, build, and grow with our clients.</p>
+          </div>
+          <div className="core-values-grid">
+            {coreValues.map(({ title, text, icon: Icon, tone }) => (
+              <article className={`core-value-card core-value-${tone}`} key={title}>
+                <span className="core-value-icon"><Icon size={24} strokeWidth={1.8} aria-hidden="true" /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

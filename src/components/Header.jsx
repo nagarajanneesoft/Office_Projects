@@ -22,7 +22,8 @@ export default function Header() {
       frame = window.requestAnimationFrame(() => {
         const scrollableHeight =
           document.documentElement.scrollHeight - window.innerHeight;
-        const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+        const progress =
+          scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
         document.documentElement.style.setProperty(
           "--site-scroll-progress",
           String(Math.min(1, Math.max(0, progress))),
@@ -81,6 +82,9 @@ export default function Header() {
             </NavLink>
             <NavLink to="/clients" onClick={closeMenu}>
               Clients
+            </NavLink>
+            <NavLink to="/careers" onClick={closeMenu}>
+              Careers
             </NavLink>
             <NavLink to="/contact" onClick={closeMenu}>
               Contact
@@ -147,6 +151,9 @@ export default function Header() {
           </NavLink>
           <NavLink to="/clients" onClick={closeMenu}>
             Clients <ArrowUpRight size={16} />
+          </NavLink>
+          <NavLink to="/careers" onClick={closeMenu}>
+            Career <ArrowUpRight size={16} />
           </NavLink>
         </div>
         <p className="drawer-heading drawer-contact-heading">Get in touch</p>

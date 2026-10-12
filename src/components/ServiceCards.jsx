@@ -1,5 +1,12 @@
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Code2, Layers3, MonitorSmartphone, ShieldCheck, Sparkles } from 'lucide-react';
+import { Link } from "react-router-dom";
+import {
+  ArrowUpRight,
+  Code2,
+  Layers3,
+  MonitorSmartphone,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 
 export default function ServiceCards({ home = false }) {
   if (home) {
@@ -7,31 +14,31 @@ export default function ServiceCards({ home = false }) {
       {
         icon: Code2,
         title: "Custom Software Development",
-        text: "Software shaped around your workflows, goals, and plans for growth.",
+        text: "Purpose-built software solutions designed around business requirements, workflows, and long-term objectives.",
         tone: "software",
       },
       {
         icon: MonitorSmartphone,
         title: "Web Application Development",
-        text: "Fast, accessible web products that make everyday work feel simpler.",
+        text: "Modern, secure, and scalable web applications that enhance user experiences and support business operations.",
         tone: "web",
       },
       {
         icon: Layers3,
         title: "Enterprise Solutions",
-        text: "Connected systems that bring teams, data, and operations together.",
+        text: "Business-critical technology solutions that streamline operations, integrate systems, and support organizational growth.",
         tone: "enterprise",
       },
       {
         icon: ShieldCheck,
         title: "Maintenance & Support",
-        text: "Ongoing care that keeps your products reliable, secure, and up to date.",
+        text: "Continuous monitoring, optimization, and technical support to ensure long-term reliability and performance.",
         tone: "support",
       },
       {
         icon: Sparkles,
         title: "IT Consulting",
-        text: "Clear technical direction to help you make confident next steps.",
+        text: "Strategic technology guidance covering architecture, digital transformation, and technology planning.",
         tone: "consulting",
       },
     ];
@@ -66,33 +73,33 @@ export default function ServiceCards({ home = false }) {
   const pageServices = [
     {
       icon: Code2,
-      number: '01',
-      title: 'Custom Software Development',
-      text: 'Software shaped around your workflows, goals, and plans for growth.',
+      number: "01",
+      title: "Custom Software Development",
+      text: "Software shaped around your workflows, goals, and plans for growth.",
     },
     {
       icon: MonitorSmartphone,
-      number: '02',
-      title: 'Web Application Development',
-      text: 'Fast, accessible web products that make everyday work feel simpler.',
+      number: "02",
+      title: "Web Application Development",
+      text: "Fast, accessible web products that make everyday work feel simpler.",
     },
     {
       icon: Layers3,
-      number: '03',
-      title: 'Enterprise Solutions',
-      text: 'Connected systems that bring teams, data, and operations together.',
+      number: "03",
+      title: "Enterprise Solutions",
+      text: "Connected systems that bring teams, data, and operations together.",
     },
     {
       icon: ShieldCheck,
-      number: '04',
-      title: 'Maintenance & Support',
-      text: 'Ongoing care that keeps your products reliable, secure, and up to date.',
+      number: "04",
+      title: "Maintenance & Support",
+      text: "Ongoing care that keeps your products reliable, secure, and up to date.",
     },
     {
       icon: Sparkles,
-      number: '05',
-      title: 'IT Consulting',
-      text: 'Clear technical direction to help you make confident next steps.',
+      number: "05",
+      title: "IT Consulting",
+      text: "Clear technical direction to help you make confident next steps.",
     },
   ];
 
