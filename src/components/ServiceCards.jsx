@@ -48,7 +48,7 @@ export default function ServiceCards({ home = false }) {
         {homeServices.map(({ icon: Icon, title, text, tone }, index) => (
           <Link
             className={`home-service-card ${tone}`}
-            to="/services"
+            to={`/services/${title.toLowerCase().replaceAll(" & ", "-").replaceAll(" ", "-")}`}
             key={title}
           >
             <span className="home-service-card-top">
@@ -75,37 +75,42 @@ export default function ServiceCards({ home = false }) {
       icon: Code2,
       number: "01",
       title: "Custom Software Development",
+      slug: "custom-software-development",
       text: "Software shaped around your workflows, goals, and plans for growth.",
     },
     {
       icon: MonitorSmartphone,
       number: "02",
       title: "Web Application Development",
+      slug: "web-application-development",
       text: "Fast, accessible web products that make everyday work feel simpler.",
     },
     {
       icon: Layers3,
       number: "03",
       title: "Enterprise Solutions",
+      slug: "enterprise-solutions",
       text: "Connected systems that bring teams, data, and operations together.",
     },
     {
       icon: ShieldCheck,
       number: "04",
       title: "Maintenance & Support",
+      slug: "maintenance-support",
       text: "Ongoing care that keeps your products reliable, secure, and up to date.",
     },
     {
       icon: Sparkles,
       number: "05",
       title: "IT Consulting",
+      slug: "it-consulting",
       text: "Clear technical direction to help you make confident next steps.",
     },
   ];
 
   return (
     <div className="service-grid service-grid-wide">
-      {pageServices.map(({ icon: Icon, number, title, text }) => (
+      {pageServices.map(({ icon: Icon, number, title, text, slug }) => (
         <article className="service-card" key={title}>
           <div className="service-top">
             <span className="service-icon">
@@ -115,7 +120,7 @@ export default function ServiceCards({ home = false }) {
           </div>
           <h3>{title}</h3>
           <p>{text}</p>
-          <Link to="/contact" aria-label={`Learn more about ${title}`}>
+          <Link to={`/services/${slug}`} aria-label={`Learn more about ${title}`}>
             <ArrowUpRight size={19} />
           </Link>
         </article>
