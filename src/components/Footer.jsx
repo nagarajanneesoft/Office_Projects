@@ -45,7 +45,15 @@ export default function Footer() {
   const [messages, setMessages] = useState(createGreeting);
   const [draft, setDraft] = useState("");
   const [inquiry, setInquiry] = useState(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const messageListRef = useRef(null);
+
+  useEffect(() => {
+    const updateBackToTop = () => setShowBackToTop(window.scrollY > 240);
+    updateBackToTop();
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+    return () => window.removeEventListener("scroll", updateBackToTop);
+  }, []);
 
   useEffect(() => {
     messageListRef.current?.scrollTo({
@@ -199,7 +207,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      <button
+      {showBackToTop && <button
         className="back-to-top"
         type="button"
         aria-label="Back to top"
@@ -207,7 +215,7 @@ export default function Footer() {
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <ArrowUp size={19} />
-      </button>
+      </button>}
       {/* <a
         className="whatsapp-float"
         href="https://wa.me/919840173006?text=Hello%20NeeSoft%2C%20I%27d%20like%20to%20know%20more."
