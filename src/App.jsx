@@ -69,6 +69,7 @@ export default function App() {
 
     let loadTimeout;
     let removeTimeout;
+    let fallbackTimeout;
     let resolvePageLoad;
     const pageLoaded =
       document.readyState === "complete"
@@ -81,7 +82,11 @@ export default function App() {
       loadTimeout = window.setTimeout(resolve, 500);
     });
 
-    Promise.all([pageLoaded, minimumDisplayTime]).then(() => {
+    const pageLoadFallback = new Promise((resolve) => {
+      fallbackTimeout = window.setTimeout(resolve, 1500);
+    });
+
+    Promise.all([Promise.race([pageLoaded, pageLoadFallback]), minimumDisplayTime]).then(() => {
       loader.classList.add("app-loader-hidden");
       removeTimeout = window.setTimeout(() => loader.remove(), 300);
     });
@@ -92,6 +97,7 @@ export default function App() {
       }
       window.clearTimeout(loadTimeout);
       window.clearTimeout(removeTimeout);
+      window.clearTimeout(fallbackTimeout);
     };
   }, []);
 

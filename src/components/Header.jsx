@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import {
   ArrowUpRight,
   Clock3,
+  ChevronDown,
   Mail,
   MapPin,
   Menu,
@@ -11,9 +12,23 @@ import {
 } from "lucide-react";
 import Logo from "../assets/Logo.png";
 
+const serviceLinks = [
+  ["Custom Software Development", "custom-software-development"],
+  ["Web Application Development", "web-application-development"],
+  ["Enterprise Solutions", "enterprise-solutions"],
+  ["Maintenance & Support", "maintenance-support"],
+  ["IT Consulting", "it-consulting"],
+];
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [serviceMenuOpen, setServiceMenuOpen] = useState(false);
+  const [serviceMenuDismissed, setServiceMenuDismissed] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+  const dismissServiceMenu = () => {
+    setServiceMenuOpen(false);
+    setServiceMenuDismissed(true);
+  };
 
   useEffect(() => {
     let frame = 0;
@@ -77,9 +92,43 @@ export default function Header() {
             <NavLink to="/about" onClick={closeMenu}>
               About Us
             </NavLink>
-            <NavLink to="/services" onClick={closeMenu}>
-              Services
-            </NavLink>
+            <div
+              className={`nav-dropdown ${serviceMenuOpen ? "is-open" : ""} ${serviceMenuDismissed ? "is-dismissed" : ""}`}
+              onMouseEnter={() => {
+                if (!serviceMenuDismissed) setServiceMenuOpen(true);
+              }}
+              onMouseLeave={() => {
+                setServiceMenuDismissed(false);
+                setServiceMenuOpen(false);
+              }}
+            >
+              <NavLink to="/services" onClick={dismissServiceMenu}>
+                Services
+              </NavLink>
+              <button
+                className="nav-dropdown-toggle"
+                type="button"
+                aria-label="Show service pages"
+                aria-expanded={serviceMenuOpen}
+                onClick={() => {
+                  if (serviceMenuOpen) {
+                    dismissServiceMenu();
+                  } else {
+                    setServiceMenuDismissed(false);
+                    setServiceMenuOpen(true);
+                  }
+                }}
+              >
+                <ChevronDown size={14} />
+              </button>
+              <div className="nav-dropdown-menu">
+                {serviceLinks.map(([label, slug]) => (
+                  <NavLink key={slug} to={`/services/${slug}`} onClick={dismissServiceMenu}>
+                    {label}<ArrowUpRight size={14} />
+                  </NavLink>
+                ))}
+              </div>
+            </div>
             <NavLink to="/clients" onClick={closeMenu}>
               Clients
             </NavLink>
@@ -149,6 +198,13 @@ export default function Header() {
           <NavLink to="/services" onClick={closeMenu}>
             Services <ArrowUpRight size={16} />
           </NavLink>
+          <div className="drawer-service-links" aria-label="Service pages">
+            {serviceLinks.map(([label, slug]) => (
+              <NavLink key={slug} to={`/services/${slug}`} onClick={closeMenu}>
+                {label}
+              </NavLink>
+            ))}
+          </div>
           <NavLink to="/clients" onClick={closeMenu}>
             Clients <ArrowUpRight size={16} />
           </NavLink>

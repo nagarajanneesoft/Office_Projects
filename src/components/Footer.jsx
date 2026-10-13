@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Newsletter from "./Newsletter.jsx";
-// import Logo from "../assets/Logo.png";
+import Logo from "../assets/Logo.png";
 
 const quickReplies = ["Services", "Contact", "Careers", "Start a project"];
 
@@ -145,12 +145,12 @@ export default function Footer() {
       <footer className="site-footer">
         <div className="container-xl footer-grid">
           <div className="footer-intro">
-            {/* <img className="brand-logo" src={Logo} alt="NeeSoft" /> */}
+            <img className="brand-logo" src={Logo} alt="NeeSoft" />
             <p className="footer-overline">Ready to</p>
             <h2>Work with us?</h2>
             <p>
-              Tell us where you want to go. We can help you find a clear path
-              forward.
+              Engineering software solutions that drive business growth and
+              digital transformation.
             </p>
           </div>
           <div className="footer-services">
@@ -207,15 +207,17 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      {showBackToTop && <button
-        className="back-to-top"
-        type="button"
-        aria-label="Back to top"
-        title="Back to top"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      >
-        <ArrowUp size={19} />
-      </button>}
+      {showBackToTop && (
+        <button
+          className="back-to-top"
+          type="button"
+          aria-label="Back to top"
+          title="Back to top"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <ArrowUp size={19} />
+        </button>
+      )}
       {/* <a
         className="whatsapp-float"
         href="https://wa.me/919840173006?text=Hello%20NeeSoft%2C%20I%27d%20like%20to%20know%20more."

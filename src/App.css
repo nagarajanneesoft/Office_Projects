@@ -8774,3 +8774,102 @@ body {
     padding: 27px 23px;
   }
 }
+
+/* Services navigation dropdown */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  /* min-height: 44px; */
+}
+.nav-dropdown-toggle {
+  display: grid;
+  width: 25px;
+  height: 30px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    transform 0.18s,
+    color 0.18s;
+}
+.nav-dropdown-toggle:hover,
+.nav-dropdown.is-open .nav-dropdown-toggle {
+  color: #e86020;
+}
+.nav-dropdown.is-open .nav-dropdown-toggle {
+  transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  left: -17px;
+  display: grid;
+  width: 270px;
+  padding: 8px;
+  border: 1px solid #e7ecef;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(22, 46, 63, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(7px);
+  transition:
+    opacity 0.18s,
+    visibility 0.18s,
+    transform 0.18s;
+}
+.nav-dropdown.is-open .nav-dropdown-menu,
+.nav-dropdown:focus-within:not(.is-dismissed) .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 7px;
+  color: #526777;
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a.active {
+  color: #e86020;
+  background: #fff4ee;
+}
+.nav-dropdown-menu a.active:after {
+  display: none;
+}
+.drawer-service-links {
+  display: grid;
+  padding: 3px 0 8px 17px;
+  border-bottom: 1px solid #e7ecef;
+}
+.drawer-service-links a {
+  min-height: 36px;
+  border: 0;
+  color: #72828d;
+  font-size: 12px;
+  font-weight: 500;
+}
+.drawer-service-links a:hover,
+.drawer-service-links a.active {
+  color: #e86020;
+}
