@@ -3867,7 +3867,7 @@ body {
 .back-to-top {
   position: fixed;
   z-index: 80;
-  right: 22px;
+  right: 100px;
   bottom: 20px;
   display: grid;
   place-items: center;
@@ -3899,8 +3899,14 @@ body {
 }
 .back-to-top:hover {
   transform: translateY(-3px);
-  border-color: #397be8;
-  background: #397be8;
+  border-color: #fff;
+  background: #e86020;
+  color: #fff;
+}
+.back-to-top svg {
+  color: #344b58;
+}
+.back-to-top:hover svg {
   color: #fff;
 }
 @keyframes back-to-top-pulse {
@@ -3921,8 +3927,8 @@ body {
 }
 .whatsapp-float {
   position: fixed;
-  right: 19px;
-  bottom: 82px;
+  right: 15px;
+  bottom: 20px;
   z-index: 81;
   display: grid;
   width: 50px;
